@@ -11,7 +11,11 @@
 <body>
 	<div class = "homepage">
 		<div class = "top">
-			<div class = "logo"><img src = "{% static "assets/images/logo.png"%}" width = "100%" height = "100%"></img></div>
+			<div class = "logo">
+				<a href="/mymusic/home">
+					<img src = "{% static "assets/images/logo.png"%}" width = "100%" height = "100%"></img>
+				</a>
+			</div>
 			<div class = "title">
 				<div class= "pics">
 					<marquee behavior="scroll" direction="left" scrolldelay = "0" loop = "INFINITE" scrollamount = "20">
@@ -26,12 +30,18 @@
 				</div>
 				<div class= "signin">
 					<div class = "login">
-						<!-- <button type="button" class="btn btn-default" >Sign-in</button> -->
-						<input type="image" id="myimage" style="height:100%;width:100%;" src="{% static "assets/images/login.png"%}" />
+						{% block login %}
+						<a href="/mymusic/signin">
+  							<img src="{% static "assets/images/login.png"%}" alt="signin" style="height:100%;width:100%;">
+						</a>
+						{% endblock %}
 					</div>
 					<div class = "signup">
-						<!-- <button type="button" class="btn btn-default" >Sign-Up</button> -->
-						<input type="image" id="newuser" style="height:100%;width:100%;" src="{% static "assets/images/sign-up.png"%}" />
+						{% block signup %}
+						<a href="/mymusic/signup">
+  							<img src="{% static "assets/images/sign-up.png"%}" alt="signup" style="height:100%;width:100%;">
+						</a>
+						{% endblock %}
 					</div>
 				</div>
 			</div>
@@ -50,9 +60,9 @@
 			<div class = "result">
 				<div class = "search">
 					<div class = "searchbar">
-							<form action="" method="">
+							<form action="/mymusic/search/" method="GET">
 							<br>   
-								<p><input type="search" placeholder="Search for songs by album/artist/genre...."></p>
+								<p><input type="search" placeholder="Search for songs by album/artist/genre...." name="search" id = "search"></p>
 								<button>Search</button>
 							</form>
 					</div>
@@ -60,7 +70,9 @@
 						{% block content %} {% endblock %}
 					</div>
 				</div>
-				<div class = "sidebar">{% block sidebar %} {% endblock %}</div>
+				<div class = "sidebar">{% block sidebar %} 
+						<a href="/mymusic/adminlogin"><input type="submit" value = "adminLogin"></a>
+					{% endblock %}</div>
 			</div>
 		</div>
 	</div>

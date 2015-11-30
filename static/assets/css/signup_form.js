@@ -6,7 +6,7 @@ var uemail = document.registration.email;
 var umobile = document.registration.mobilenumber;
 var upass=document.registration.password;
 var urpass = document.registration.repassword;
-if(userid_validation(uname,5,40))
+if(userid_validation(uname,5,40))4
 {
 if(lname_validation(ulname,5,40))
 {

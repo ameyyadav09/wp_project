@@ -1,0 +1,9 @@
+{% extends "home.html" %}
+
+{% block content %}
+<br>
+<audio controls >
+	<source src="/static/assets/{{song.thumbnail}}" type="audio/mpeg">
+	Your browser does not support the audio element.
+	</audio>
+{% endblock %}

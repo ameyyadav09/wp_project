@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 
 class Userdetails(models.Model):
@@ -8,3 +8,16 @@ class Userdetails(models.Model):
 	email = models.EmailField(unique = True)
 	password = models.CharField(max_length=20)
 	mobilenumber = models.CharField(max_length=15, unique=True)
+
+class Admins(models.Model):
+	username = models.EmailField(unique = True)
+	password = models.CharField(max_length = 20)
+
+def get_upload_file_name(instance, filename):
+	return "upload_files/%s_%s" % (str(25-11).replace('.','_'),filename)
+
+class Songs(models.Model):
+	thumbnail = models.FileField(upload_to = get_upload_file_name)
+	artist = models.CharField(max_length = 100)
+	album = models.CharField(max_length = 100)
+	language = models.CharField(max_length=20 ,unique = True)
