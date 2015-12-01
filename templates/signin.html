@@ -6,7 +6,7 @@
 	<p class = "error">Sorry, that's not a valid username or password</p>
 	{% endif %}
 
-	<form action="/mymusic/auth/" method="get">
+	<form action="/mymusic/auth/" method="post">{% csrf_token %}
 		<label for="username">USER NAME:</label>
 		<input typle="text" name="username" value="" id="username">
 		<label for="password">PASSWORD:</label>

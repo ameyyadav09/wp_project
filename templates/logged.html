@@ -1,12 +1,14 @@
 {% extends "home.html" %}
-
-{% block login %}
-<p>Click <a href="/mymusic/home/">here</a> to logout</p>
+{% block sidebar %}
+	{% if username != null %}
+		<br><br>
+		<a href="/mymusic/logout/"><input type="submit" value = "logout"></a>
+		<hr>
+		<a href="/mymusic/playlist/"><input type="submit" value = "Playlist"></a>
+	{% else %}
+		<a href="/mymusic/login">yu need to log in to view the playlist</a>
+	{% endif %}
 {% endblock %}
-{% block signup %}
-{% endblock %}
 
 
-{% block content %}
-<h1>hello bro</h1>
-{% endblock %}
+

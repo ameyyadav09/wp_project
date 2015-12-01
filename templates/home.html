@@ -29,20 +29,20 @@
 					</marquee>		
 				</div>
 				<div class= "signin">
-					<div class = "login">
-						{% block login %}
-						<a href="/mymusic/signin">
-  							<img src="{% static "assets/images/login.png"%}" alt="signin" style="height:100%;width:100%;">
-						</a>
-						{% endblock %}
-					</div>
-					<div class = "signup">
-						{% block signup %}
-						<a href="/mymusic/signup">
-  							<img src="{% static "assets/images/sign-up.png"%}" alt="signup" style="height:100%;width:100%;">
-						</a>
-						{% endblock %}
-					</div>
+					{% if username != null %}
+						<h1>{{username}}</h1>
+					{% else %}
+						<div class = "login" >
+							{% block login %}
+									<a href="/mymusic/signin"><input type="button" value = "SIGNIN"></a>
+							{% endblock %}
+						</div>
+						<div class = "signup">
+							{% block signup %}
+							<a href="/mymusic/signup"><input type="button" value = "SIGNUP"></a>
+							{% endblock %}
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -50,11 +50,11 @@
 			<div class = "lang-panel">
 				<ul class = "langlist">
 					<br> <br>
-  					<li><button class="lang"><span>Telugu </span></button></li>
-  					<li><button class="lang"><span>Hindi </span></button></li>
-  					<li><button class="lang"><span>English </span></button></li>
-  					<li><button class="lang"><span>Tamil </span></button></li>
-  					<li><button class="lang"><span>Malyalam </span></button></li>
+  					<button class="lang"><span>Telugu </span></button>
+  					<button class="lang"><span>Hindi </span></button>
+  					<button class="lang"><span>English </span></button>
+  					<button class="lang"><span>Tamil </span></button>
+  					<button class="lang"><span>Malyalam </span></button>
 				</ul>
 			</div>
 			<div class = "result">
@@ -71,7 +71,13 @@
 					</div>
 				</div>
 				<div class = "sidebar">{% block sidebar %} 
+					{% if username == null %}
 						<a href="/mymusic/adminlogin"><input type="submit" value = "adminLogin"></a>
+						<hr>
+						<br>
+					{% else %}
+						<a href="/mymusic/logout"><input type="submit" value = "logout"></a>
+					{% endif %}
 					{% endblock %}</div>
 			</div>
 		</div>

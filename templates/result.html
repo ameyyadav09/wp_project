@@ -1,11 +1,6 @@
 {% extends "home.html" %}
-
 {% block content %}
-
-{% for song in songs %}
-<div>
-	<h2><a href="/mymusic/play/{{ song.id }}/">{{song.thumbnail}}</a></h2>
-</div>
-{% endfor %}
-
+	{% for song in songs %}
+		<h6><a href="/mymusic/play/{{ song.id }}/">{{song.thumbnail}}</a></h6>
+	{% endfor %}
 {% endblock %}
